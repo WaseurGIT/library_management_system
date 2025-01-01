@@ -4,15 +4,12 @@ import com.example.library_management_system.utils.DataBase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.sql.Connection;
 
 public class LoginController {
 
@@ -35,21 +32,7 @@ public class LoginController {
 
     //from login page to register page
     public void goToRegisterPage(ActionEvent event) throws IOException {
-        // Load the FXML resource
-//        URL resource = getClass().getResource("/resources/com/example/library_management_system/fxml/register.fxml");
-//        if (resource == null) {
-//            throw new IOException("FXML file not found at /fxml/register.fxml");
-//        }
-//
-//        Parent root = FXMLLoader.load(resource);
-//
-//        // Get the current stage from the event source
-//        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//
-//        // Create a new scene and set it on the stage
-//        scene = new Scene(root, 1300, 740);
-//        stage.setScene(scene);
-//        stage.show();
+
         try {
             // Load the Register page FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/library_management_system/fxml/register.fxml"));
@@ -74,20 +57,13 @@ public class LoginController {
             String pattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*(),.?\":{}|<>]).*$";
 
 
+            this.loginEmail.setText("asdf@gmail.com");
+            this.loginPassword.setText("Asdf12@");
+
             // get the value of email and password
             String email = loginEmail.getText();
             String password = loginPassword.getText();
 
-            Connection connection = DataBase.getConnection();
-
-            boolean validUser = DataBase.validUser("asif", "a@gmail.com");
-
-            if(validUser){
-                System.out.println("User find");
-            }
-            else {
-                System.out.println("Not find");
-            }
 
             if(email == null || email.isEmpty() || password == null || password.isEmpty()){
                 Alert nullEmailPassAlert = new Alert(Alert.AlertType.ERROR);
@@ -102,22 +78,36 @@ public class LoginController {
 
             else if(email.contains("@") && password.length()>=6 && password.matches(pattern)){
                 // Load the Register page FXML file
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/library_management_system/fxml/dashboard.fxml"));
-                Parent root = loader.load();
 
-                // Get the current stage and set the new scene
-                Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(root));
-                stage.setTitle("Dashboard");
-                stage.show();
+                Boolean isValidUser = DataBase.validUser(email,password);
 
-                Alert loginSuccessfulAlert = new Alert(Alert.AlertType.INFORMATION);
-                loginSuccessfulAlert.setTitle("Login Successful");
-                loginSuccessfulAlert.setHeaderText("Successfully logged in");
+                if (isValidUser){
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/library_management_system/fxml/dashboard.fxml"));
+                    Parent root = loader.load();
 
-                DialogPane dialogPane = loginSuccessfulAlert.getDialogPane();
-                dialogPane.setPrefSize(600,300);
-                loginSuccessfulAlert.showAndWait();
+                    // Get the current stage and set the new scene
+                    Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(new Scene(root));
+                    stage.setTitle("Dashboard");
+                    stage.show();
+
+                    Alert loginSuccessfulAlert = new Alert(Alert.AlertType.INFORMATION);
+                    loginSuccessfulAlert.setTitle("Login Successful");
+                    loginSuccessfulAlert.setHeaderText("Successfully logged in");
+
+                    DialogPane dialogPane = loginSuccessfulAlert.getDialogPane();
+                    dialogPane.setPrefSize(600,300);
+                    loginSuccessfulAlert.showAndWait();
+                } else {
+                    System.out.println("User Not Find");
+                    Alert userNotFound = new Alert(Alert.AlertType.INFORMATION);
+                    userNotFound.setTitle("User Not Find");
+                    userNotFound.setHeaderText("User Not Find");
+
+                    DialogPane dialogPane = userNotFound.getDialogPane();
+                    dialogPane.setPrefSize(600,300);
+                    userNotFound.showAndWait();
+                }
             }
             else{
                 if(!email.contains("@")){
@@ -173,28 +163,4 @@ public class LoginController {
     public void  setLoginPassword(PasswordField loginPassword){
         this.loginPassword = loginPassword;
     }
-
-    // Implement login functionality here (e.g., validate credentials, show success/failure message)
-//    public void login(ActionEvent event) {
-//        // Retrieve user credentials from TextField and PasswordField
-//        String email = emailField.getText();
-//        String password = passwordField.getText();
-//
-//        // Implement validation logic here (e.g., check for empty fields, correct format)
-//
-//        // If credentials are valid, proceed with login action (e.g., switch to main window)
-//        if (isValidCredentials(email, password)) {
-//            // Code to switch to main window or perform other login actions
-//            System.out.println("Login successful!");
-//        } else {
-//            // Show an error message or notification to indicate incorrect credentials
-//            System.out.println("Login failed. Invalid credentials.");
-//        }
-//    }
-
-//    private boolean isValidCredentials(String email, String password) {
-//        // Implement your validation logic here, e.g., using a database or other authentication methods
-//        // This is just a placeholder for now
-//        return true; // Assuming valid credentials for demonstration purposes
-//    }
 }

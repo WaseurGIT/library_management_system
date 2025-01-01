@@ -36,9 +36,11 @@
                   <Image url="@../images/add-user.png" />
                </image>
             </ImageView>
-            <TextField layoutX="320.0" layoutY="206.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="374.0" promptText="Email" />
-            <TextField layoutX="320.0" layoutY="313.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="374.0" promptText="Pin" />
-            <Button alignment="CENTER" layoutX="408.0" layoutY="377.0" mnemonicParsing="false" onAction="#goToLoginPage" prefHeight="44.0" prefWidth="208.0" style="-fx-background-color: blue;" text="Register" textFill="WHITE">
+            <TextField fx:id="userName" layoutX="320.0" layoutY="210.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="374.0" promptText="Name" />
+            <TextField fx:id="regEmail" layoutX="320.0" layoutY="260.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="374.0" promptText="Email" />
+            <PasswordField fx:id="regPassword" layoutX="320.0" layoutY="312.0" prefHeight="34.0" prefWidth="374.0" promptText="Password" />
+
+            <Button fx:id="registered" alignment="CENTER" layoutX="408.0" layoutY="377.0" mnemonicParsing="false" onAction="#userRegistered" prefHeight="44.0" prefWidth="208.0" style="-fx-background-color: blue;" text="Register" textFill="WHITE">
                <font>
                   <Font name="Gill Sans MT Bold" size="17.0" />
                </font>
@@ -63,7 +65,6 @@
                   </Button>
                </children>
             </HBox>
-            <PasswordField layoutX="320.0" layoutY="258.0" prefHeight="34.0" prefWidth="374.0" promptText="Password" />
             <Separator layoutX="390.0" layoutY="452.0" prefHeight="0.0" prefWidth="278.0" />
          </children>
       </AnchorPane>

@@ -66,19 +66,17 @@
          </children>
       </AnchorPane>
       <ScrollPane layoutX="239.0" layoutY="144.8" prefHeight="594.0" prefWidth="1060.0" AnchorPane.topAnchor="145.0">
-         <content>
-            <TableView prefHeight="594.0" prefWidth="1060.0">
-              <columns>
-                <TableColumn prefWidth="116.0" text="Student Id" />
-                <TableColumn prefWidth="260.0" text="Student Name" />
-                  <TableColumn minWidth="0.0" prefWidth="150.0" text="Department" />
-                  <TableColumn prefWidth="85.0" text="Intake" />
-                  <TableColumn prefWidth="85.0" text="Section" />
-                  <TableColumn prefWidth="308.0" text="Email" />
-                  <TableColumn prefWidth="39.20001220703125" />
-              </columns>
-            </TableView>
-         </content>
+         <TableView fx:id="studentTable" prefHeight="594.0" prefWidth="1060.0">
+            <columns>
+               <TableColumn fx:id="studentIdColumn" prefWidth="116.0" text="Student Id"/>
+               <TableColumn fx:id="studentNameColumn" prefWidth="260.0" text="Student Name"/>
+               <TableColumn fx:id="deptColumn" prefWidth="150.0" text="Department"/>
+               <TableColumn fx:id="intakeColumn" prefWidth="85.0" text="Intake"/>
+               <TableColumn fx:id="secColumn" prefWidth="85.0" text="Section"/>
+               <TableColumn fx:id="emailColumn" prefWidth="308.0" text="Email"/>
+            </columns>
+         </TableView>
+
       </ScrollPane>
       <Separator layoutX="219.0" layoutY="195.0" orientation="VERTICAL" prefHeight="530.0" prefWidth="0.0" AnchorPane.bottomAnchor="29.600000000000023" />
       <AnchorPane layoutX="14.0" layoutY="-7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="182.0" prefWidth="207.0" style="-fx-background-color: gold; -fx-background-radius: 0px 0px 25px 25px;" AnchorPane.leftAnchor="1.0" AnchorPane.topAnchor="0.0">
