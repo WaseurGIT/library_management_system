@@ -72,7 +72,7 @@ public class LoginController {
 
                 // change the alert box size
                 DialogPane dialogPane = nullEmailPassAlert.getDialogPane();
-                dialogPane.setPrefSize(600,300);
+                dialogPane.setPrefSize(420,180);
                 nullEmailPassAlert.showAndWait();
             }
 
@@ -96,16 +96,16 @@ public class LoginController {
                     loginSuccessfulAlert.setHeaderText("Successfully logged in");
 
                     DialogPane dialogPane = loginSuccessfulAlert.getDialogPane();
-                    dialogPane.setPrefSize(600,300);
+                    dialogPane.setPrefSize(420,180);
                     loginSuccessfulAlert.showAndWait();
                 } else {
-                    System.out.println("User Not Find");
+                    System.out.println("User Not Found");
                     Alert userNotFound = new Alert(Alert.AlertType.INFORMATION);
                     userNotFound.setTitle("User Not Find");
                     userNotFound.setHeaderText("User Not Find");
 
                     DialogPane dialogPane = userNotFound.getDialogPane();
-                    dialogPane.setPrefSize(600,300);
+                    dialogPane.setPrefSize(420,180);
                     userNotFound.showAndWait();
                 }
             }
@@ -118,7 +118,7 @@ public class LoginController {
                     emailAlert.setHeaderText("Email must contain @");
 
                     DialogPane dialogPane = emailAlert.getDialogPane();
-                    dialogPane.setPrefSize(600,300);
+                    dialogPane.setPrefSize(420,180);
                     emailAlert.showAndWait();
                 }
                 else if(password.length()<6){
@@ -129,7 +129,7 @@ public class LoginController {
                     passwordLengthAlert.setHeaderText("Password length must be 6 character");
 
                     DialogPane dialogPane = passwordLengthAlert.getDialogPane();
-                    dialogPane.setPrefSize(600,300);
+                    dialogPane.setPrefSize(420,180);
                     passwordLengthAlert.showAndWait();
                 }
                 else if(!password.contains(pattern)){
@@ -140,7 +140,7 @@ public class LoginController {
                     passwordPatternAlert.setHeaderText("Password must contain at least one special character and uppercase and lowercase character");
 
                     DialogPane dialogPane = passwordPatternAlert.getDialogPane();
-                    dialogPane.setPrefSize(600,300);
+                    dialogPane.setPrefSize(420,180);
                     passwordPatternAlert.showAndWait();
                 }
             }

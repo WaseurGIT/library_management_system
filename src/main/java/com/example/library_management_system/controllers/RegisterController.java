@@ -58,7 +58,7 @@ public class RegisterController {
                 registerSuccessfulAlert.setHeaderText("Successfully Registered");
 
                 DialogPane dialogPane = registerSuccessfulAlert.getDialogPane();
-                dialogPane.setPrefSize(600,300);
+                dialogPane.setPrefSize(420,180);
                 registerSuccessfulAlert.showAndWait();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -69,7 +69,7 @@ public class RegisterController {
             registrationError.setHeaderText("Registration Error");
 
             DialogPane dialogPane = registrationError.getDialogPane();
-            dialogPane.setPrefSize(600,300);
+            dialogPane.setPrefSize(420,180);
             registrationError.showAndWait();
         }
 

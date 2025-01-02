@@ -5,5 +5,6 @@ CREATE TABLE bookDetails
     bookAuthor          VARCHAR(255)                          NOT NULL,
     bookImage           VARCHAR(255)                          NOT NULL,
     bookDept            VARCHAR(255)                          NOT NULL,
-    bookStatus          VARCHAR(50)                           DEFAULT 'Available' -- 'Available' or 'Issued'
+    bookStatus          VARCHAR(50)                           DEFAULT 'Available', -- 'Available' or 'Issued'
+    issueDate           DATE
 );

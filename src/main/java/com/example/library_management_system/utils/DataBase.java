@@ -19,42 +19,6 @@ public class DataBase {
         }
     }
 
-    // Method to fetch all books
-    public static void fetchAllBooks() {
-        Connection connection = getConnection(); // Establish connection
-
-        if (connection != null) {
-            String query = "SELECT * FROM books";
-
-            // Create a Statement and Execute the Query
-            try (Statement statement = connection.createStatement();
-                 ResultSet resultSet = statement.executeQuery(query)) {
-
-                // Print all book information
-                System.out.println("BookID | BookName | BookAuthor | BookDept");
-                while (resultSet.next()) {
-                    int bookID = resultSet.getInt("BookID");
-                    String bookName = resultSet.getString("BookName");
-                    String bookAuthor = resultSet.getString("BookAuthor");
-                    String bookDept = resultSet.getString("BookDept");
-
-                    System.out.printf("%d | %s | %s | %s%n", bookID, bookName, bookAuthor, bookDept);
-                }
-            } catch (SQLException e) {
-                System.out.println("Error executing query: " + e.getMessage());
-            } finally {
-                // Close the connection
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    System.out.println("Error closing connection: " + e.getMessage());
-                }
-            }
-        } else {
-            System.out.println("Failed to connect to the database.");
-        }
-    }
-
     // Validate user by comparing hashed passwords
     public static boolean validUser(String email, String password) {
         Connection connection = getConnection();
