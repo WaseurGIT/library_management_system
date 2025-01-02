@@ -32,10 +32,13 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="124.0" style="-fx-background-color: #124587; -fx-background-radius: 6px;" styleClass="clicked_button" stylesheets="@../css/style.css" text="Book Details" textFill="WHITE">
+                  <Button maxHeight="-Infinity" onAction="#goToBookDetailsPage" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="124.0" style="-fx-background-color: #124587; -fx-background-radius: 6px;" styleClass="clicked_button" stylesheets="@../css/style.css" text="Book Details" textFill="WHITE">
                      <font>
                         <Font name="Corbel Bold" size="17.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="goToStudentDetailsPage" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goToStudentDetailsPage" prefHeight="35.0" prefWidth="142.0" style="-fx-background-color: #124587; -fx-background-radius: 6px;" text="Student Details" textFill="WHITE">
                      <font>
@@ -127,7 +130,7 @@
          </children>
       </HBox>
       <ScrollPane layoutX="282.0" layoutY="189.0" prefHeight="550.0" prefWidth="1018.0">
-         <GridPane fx:id="allBooks" prefHeight="106.0" prefWidth="155.0">
+         <GridPane fx:id="allBooks" hgap="20" vgap="20" prefHeight="106.0" prefWidth="155.0">
          </GridPane>
       </ScrollPane>
       <AnchorPane layoutY="5.0" prefHeight="182.0" prefWidth="206.0" style="-fx-background-color: gold; -fx-background-radius: 0px 0px 25px 25px;" AnchorPane.leftAnchor="1.0" AnchorPane.topAnchor="0.0">

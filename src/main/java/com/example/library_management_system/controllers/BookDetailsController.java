@@ -38,20 +38,7 @@ public class BookDetailsController implements Initializable {
 
     //from dashboard to book details page
     public void goToBookDetailsPage(ActionEvent event) throws Exception{
-        try {
-            // Load the Register page FXML file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/library_management_system/fxml/bookdetails.fxml"));
-            Parent root = loader.load();
-
-            // Get the current stage and set the new scene
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Book Details");
-            stage.show();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        loadBooks();
     }
 
     // from book details to dashboard page
@@ -186,7 +173,7 @@ public class BookDetailsController implements Initializable {
                     allBooks.add(bookCard, col, row);  // Add bookCard to GridPane
 
                     col++;
-                    if (col == 3) {  // 3 books per row
+                    if (col == 4) {  // 4 books per row
                         col = 0;
                         row++;
                     }
@@ -222,7 +209,7 @@ public class BookDetailsController implements Initializable {
                     allBooks.add(bookCard, col, row);  // Add bookCard to GridPane
 
                     col++;
-                    if (col == 3) {  // 3 books per row
+                    if (col == 4) {  // 4 books per row
                         col = 0;
                         row++;
                     }
