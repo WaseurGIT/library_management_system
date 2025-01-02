@@ -57,8 +57,8 @@ public class LoginController {
             String pattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*(),.?\":{}|<>]).*$";
 
 
-            this.loginEmail.setText("asdf@gmail.com");
-            this.loginPassword.setText("Asdf12@");
+//            this.loginEmail.setText("asdf@gmail.com");
+//            this.loginPassword.setText("Asdf12@");
 
             // get the value of email and password
             String email = loginEmail.getText();

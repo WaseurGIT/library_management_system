@@ -123,7 +123,7 @@ public class IssuedBookController implements Initializable {
                     allIssuedBooks.add(bookCard, col, row);  // Add bookCard to GridPane
 
                     col++;
-                    if (col == 3) {  // 3 books per row
+                    if (col == 4) {  // 4 books per row
                         col = 0;
                         row++;
                     }
